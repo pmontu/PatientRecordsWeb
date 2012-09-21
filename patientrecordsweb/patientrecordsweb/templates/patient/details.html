@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}<h1>{{patient.name}}</h1>{% endblock %}
+
+{% block content %}
+<p>age:{{patient.age}}</p>
+<p>gender:{{patient.get_gender_display}}</p>
+
+<form action="/newvisit/" method="post">
+{% csrf_token %}
+<input type="submit" value="New Visit" />
+</form>
+
+<table>
+    {% for set in history %}
+        <tr><th colspan=3><a href="/addcdt/?q={{visit.id}}">{{visit.date}}</a></th></tr>
+        {% for cdt in set.cdts %}
+            <tr><td>{{cdt.get_condition_display}}</td><td>{{cdt.get_diagnosis_display}}</td><td>{{cdt.get_treatment_display}}</td></tr>
+        {% endfor %}
+    {% endfor %}
+</table>
+{% endblock %}

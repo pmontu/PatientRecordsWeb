@@ -1,0 +1,9 @@
+Patient Records Web
+-------------------
+django application
+
+features:
+1.Doctor Authentication
+2.Patient Registeration and Listing
+3.Patient Details with History
+4.Add Patient Visit and Information
